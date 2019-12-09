@@ -13,6 +13,26 @@ const getAll = (request, response) => {
     })
 }
 
+const getAllLibrary = (request, response) => {
+            return response.status(200).send(bibliotecaCollection)
+        }
+
+
+const addNewBook = (request, response) => {
+
+    const newBook = new bibliotecaCollection(request.body)
+
+    newBook.save((error) => {
+      if (error) {
+        return response.status(500).send(error)
+      }
+  
+      return response.status(201).send(newBook)
+    })
+  }
+
 module.exports = {
-    getAll
+    getAll,
+    addNewBook,
+    getAllLibrary
 }
