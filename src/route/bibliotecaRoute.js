@@ -4,8 +4,8 @@ const controller = require('../controller/bibliotecaController')
 
 router.get('', controller.getAll)
 router.get('/', controller.getAllLibrary)
-// router.get('/:id', controller.getBooksById)
 router.post('/cadastrar', controller.addNewBook)
+router.get('/:id', controller.getBooksById)
 
 
 module.exports = router

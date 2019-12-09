@@ -16,7 +16,19 @@ const getAll = (request, response) => {
 const getAllLibrary = (request, response) => {
             return response.status(200).send(bibliotecaCollection)
         }
+        
+const getBooksById = (request, response) => {
+    const id = request.params.id
 
+    return bibliotecaCollection.findById(id, (error, livro) => {
+        if (error) {
+            return response.status(500).send(error)
+        } if (livro){
+            return response.status(200).send(livro)
+        }
+        return response.status(404).send('Livro não encontrado')
+    })
+}
 
 const addNewBook = (request, response) => {
 
@@ -34,5 +46,6 @@ const addNewBook = (request, response) => {
 module.exports = {
     getAll,
     addNewBook,
-    getAllLibrary
+    getAllLibrary,
+    getBooksById
 }
