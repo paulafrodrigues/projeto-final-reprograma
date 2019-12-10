@@ -66,11 +66,28 @@ const addNewBook = (request, response) => {
       )
   }
 
+  const deleteById = (request, response) => {
+      const id = request.params.id
+
+      bibliotecaCollection.findByIdAndDelete(id, (error, livro) => {
+          if (error) {
+              return response.status(500).send(error)
+          }
+
+          if (livro) {
+              return response.status(200).send(id)
+          }
+
+          return response.status(404).send('Livro não encontrado!')
+      })
+  }
+
 module.exports = {
     getAll,
     addNewBook,
     getAllLibrary,
     updadeById,
-    getBooksById
+    getBooksById,
+    deleteById
     
 }

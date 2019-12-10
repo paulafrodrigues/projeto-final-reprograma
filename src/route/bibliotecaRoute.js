@@ -6,6 +6,7 @@ router.get('', controller.getAll)
 router.get('/', controller.getAllLibrary)
 router.post('/cadastrar', controller.addNewBook)
 router.patch('/atualizar/:id', controller.updadeById)
+router.delete('/deletar/:id', controller.deleteById)
 router.get('/:id', controller.getBooksById)
 
 
