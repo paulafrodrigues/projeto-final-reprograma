@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
-const MONGO_URL = 'mongodb://localhost:27017/bibliotecaApi'
+const MONGO_URI = process.env.PORT
 
 function connect () {
-    mongoose.connect(MONGO_URL, 
+    mongoose.connect(MONGO_URI, 
         {useNewUrlParser: true}, 
         function (error) {
             if(error) {

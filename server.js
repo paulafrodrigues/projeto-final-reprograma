@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const router = require('./src/route/bibliotecaRoute')
 const index = require('./src/route/index')
-const PORT = 3000
+const PORT = process.env.PORT
 
 app.use(cors())
 app.use(bodyParser.json())
