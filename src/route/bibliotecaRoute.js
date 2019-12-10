@@ -5,6 +5,7 @@ const controller = require('../controller/bibliotecaController')
 router.get('', controller.getAll)
 router.get('/', controller.getAllLibrary)
 router.post('/cadastrar', controller.addNewBook)
+router.patch('/atualizar/:id', controller.updadeById)
 router.get('/:id', controller.getBooksById)
 
 

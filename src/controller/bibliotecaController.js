@@ -43,9 +43,34 @@ const addNewBook = (request, response) => {
     })
   }
 
+  const updadeById = (request, response) => {
+      const id = request.params.id
+      const bookUpdate = request.body
+      const options = { new: true}
+
+      bibliotecaCollection.findByIdAndUpdate(
+          id,
+          bookUpdate,
+          options,
+          (error, livro) => {
+              if (error) {
+                  return response.status(500).send(error)
+              }
+
+              if (livro) {
+                  return response.status(200).send(livro)
+              }
+
+              return response.status(404).send('Livro não encontrado!')
+          }
+      )
+  }
+
 module.exports = {
     getAll,
     addNewBook,
     getAllLibrary,
+    updadeById,
     getBooksById
+    
 }
