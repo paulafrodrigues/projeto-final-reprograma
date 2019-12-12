@@ -30,6 +30,12 @@ const getBooksById = (request, response) => {
     })
 }
 
+// const getAutorByName = (request, response) => {
+//     const autorName = request.params.autorName
+
+//     return bibliotecaCollection.find(bibliotecaCollection => bibliotecaCollection.nomeAutor === autorName)
+// }
+
 const addNewBook = (request, response) => {
 
     const newBook = new bibliotecaCollection(request.body)
@@ -75,7 +81,7 @@ const addNewBook = (request, response) => {
           }
 
           if (livro) {
-              return response.status(200).send(id)
+              return response.status(200).send('Cadastro deletado!')
           }
 
           return response.status(404).send('Livro não encontrado!')
@@ -85,6 +91,7 @@ const addNewBook = (request, response) => {
 module.exports = {
     getAll,
     addNewBook,
+    //getAutorByName,
     getAllLibrary,
     updadeById,
     getBooksById,

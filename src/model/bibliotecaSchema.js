@@ -16,6 +16,9 @@ const BibliotecaSchema = new Schema({
         type: String,
         required: true
     },
+    nomeSegundoAutor: {
+        type: String
+    },
     
     anoPublicacao: {
         type: Number,
@@ -25,7 +28,7 @@ const BibliotecaSchema = new Schema({
         type: String
     },
     serie: {
-        type: String
+        type: {String}
     },
     tipoLivro: {
         type: String,

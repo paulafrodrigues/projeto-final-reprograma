@@ -4,13 +4,14 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const app = express()
-const router = require('./src/route/bibliotecaRoute')
+const biblioteca = require('./src/route/bibliotecaRoute')
 const index = require('./src/route/index')
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3000
 
 app.use(cors())
 app.use(bodyParser.json())
-app.use('/biblioteca', router)
+app.use('/biblioteca', biblioteca)
+
 
 app.get('/', index)
 
