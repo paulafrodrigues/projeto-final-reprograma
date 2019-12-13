@@ -30,11 +30,16 @@ const getBooksById = (request, response) => {
     })
 }
 
-// const getAutorByName = (request, response) => {
-//     const autorName = request.params.autorName
+const getByAutor = (request, response) => {
+    const autorName = request.params.autorName
 
-//     return bibliotecaCollection.find(bibliotecaCollection => bibliotecaCollection.nomeAutor === autorName)
-// }
+    bibliotecaCollection.find({nomeAutor: autorName}, function (error, bibliotecaCollection){
+        if (error){
+            return response.status(500).send(error)
+        }
+        return response.status(200).send(bibliotecaCollection)
+    })
+}
 
 const addNewBook = (request, response) => {
 
@@ -91,7 +96,7 @@ const addNewBook = (request, response) => {
 module.exports = {
     getAll,
     addNewBook,
-    //getAutorByName,
+    getByAutor,
     getAllLibrary,
     updadeById,
     getBooksById,

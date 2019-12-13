@@ -4,7 +4,7 @@ const controller = require('../controller/bibliotecaController')
 
 router.get('', controller.getAll)
 router.get('/', controller.getAllLibrary)
-// router.get('/:autorName', controller.getAutorByName)
+router.get('/autor/:autorName', controller.getByAutor)
 router.post('/cadastrar', controller.addNewBook)
 router.patch('/atualizar/:id', controller.updadeById)
 router.delete('/deletar/:id', controller.deleteById)
