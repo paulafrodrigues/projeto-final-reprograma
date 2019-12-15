@@ -41,6 +41,17 @@ const getByAutor = (request, response) => {
     })
 }
 
+const getByGenre = (request, response) => {
+    const bookGenre = request.params.bookGenre
+
+    bibliotecaCollection.find({generoLivro: bookGenre}, function (error, bibliotecaCollection){
+        if (error){
+            return response.status(500).send(error)
+        }
+        return response.status(200).send(bibliotecaCollection)
+    })
+}
+
 const addNewBook = (request, response) => {
 
     const newBook = new bibliotecaCollection(request.body)
@@ -97,6 +108,7 @@ module.exports = {
     getAll,
     addNewBook,
     getByAutor,
+    getByGenre,
     getAllLibrary,
     updadeById,
     getBooksById,

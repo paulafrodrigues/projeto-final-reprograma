@@ -30,10 +30,9 @@ const BibliotecaSchema = new Schema({
     serie: {
         type: {String}
     },
-    tipoLivro: {
-        type: String,
-        required: true
-    },
+    generoLivro: [
+        {type: String, require: true}, {type: String},{type: String}, {type: String}
+    ],
     formatoLivro: {
         type: String
     
