@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const BibliotecaSchema = new Schema({
-     
+
     _id: {
         type: mongoose.Schema.Types.ObjectId,
         auto: true,
@@ -19,7 +19,7 @@ const BibliotecaSchema = new Schema({
     nomeSegundoAutor: {
         type: String
     },
-    
+
     anoPublicacao: {
         type: Number,
         maximum: 2099
@@ -28,18 +28,18 @@ const BibliotecaSchema = new Schema({
         type: String
     },
     serie: {
-        type: {String}
+        type: { String }
     },
     generoLivro: [
-        {type: String, require: true}, {type: String},{type: String}, {type: String}
+        { type: String, require: true }, { type: String }, { type: String }, { type: String }
     ],
     formatoLivro: {
         type: String
-    
+
     },
     situacaoLivro: {
         type: String
-    
+
     }
 })
 
