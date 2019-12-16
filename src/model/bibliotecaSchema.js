@@ -37,7 +37,6 @@ const BibliotecaSchema = new Schema({
         type: String
     
     },
-
     situacaoLivro: {
         type: String
     
